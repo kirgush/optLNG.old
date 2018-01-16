@@ -2,10 +2,10 @@
 
 (* Created by the Wolfram Workbench 19-Dec-2017 *)
 
-BeginPackage["optExhaustiveSearch`"]
+BeginPackage["optLNG`", {"optExhaustiveSearch`"}]
 (* Exported symbols added here with SymbolName::usage *) 
 
-cashflowTrip::usage=""
+cashflowTrip::usage
 
 Begin["`Private`"]
 (* Implementation of the package *)
@@ -15,10 +15,8 @@ Begin["`Private`"]
 
 vessel[params_Association, t_, status_Association] := 1 
 
-(*  
-Need to update the state of the world
-*)
-cashflowTrip[v_Association, Missing[], Missing[]] := -Infinity (* TODO: really consider ? *)
+(* Need to update the state of the world *)
+(*cashflowTrip[v_Association, Missing[], Missing[]] := -Infinity (* TODO: really consider ? *)
 cashflowTrip[v_Association, Missing[], m_Association] :=
     Module[ {tripTime, dischargeVolume, cashflow},
         tripTime = GeoDistance[{v["Position"], m["LatLong"]}, UnitSystem -> "NauticalMiles"] / UnitConvert[v["Speed"], "NauticalMiles"/"Days"];
@@ -51,7 +49,7 @@ cashflowTrip[v_Association, p_Association, m_Association] :=
     	
    		{lV, lP, lM, cashflow}
         
-    ]
+    ]*)
 
 
 End[]
